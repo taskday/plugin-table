@@ -1,21 +1,32 @@
 <template>
   <VContainer>
     <VCard>
-      <table class="table-fixed w-full">
+      <table class="w-full">
         <thead>
           <tr>
             <th class="px-2 py-1 text-left">Title</th>
             <th class="px-2 py-1 text-left"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr v-for="card in project.cards" :key="project.id + '-' + card.id">
-            <td class="px-2 py-1">
-              <VLink :href="route('cards.show', card)">{{ card.title }}</VLink>
+        <tbody class="divide-y">
+          <tr>
+            <td colspan="99">
+              <form @submit.prevent="submit">
+                <VFormInput
+                  placeholder="Create a card..."
+                  v-model="form.title"
+                ></VFormInput>
+              </form>
             </td>
-            <td class="px-2 py-1">
+          </tr>
+          <tr v-for="card in project.cards" :key="project.id + '-' + card.id">
+            <td class="px-2 py-2">
+              <VLink :href="route('cards.show', card)">{{ card.title }}</VLink>
+              <span></span>
+            </td>
+            <td class="px-2 py-2">
               <div
-                class="flex items-center space-x-2 w-full"
+                class="flex justify-end items-center space-x-2 w-full"
                 v-for="field in project.fields"
                 :key="field.id"
               >
@@ -30,14 +41,26 @@
 </template>
 
 <script lang="ts" setup>
-import { VFieldWrapper, VCard, VButton, VContainer, VLink } from "taskday";
-import { defineComponent, watch } from "vue";
-import { getCurrentInstance } from "vue";
+import {
+  VDrawer,
+  VFormInput,
+  VFieldWrapper,
+  VCard,
+  VContainer,
+  VLink,
+  useCardForm,
+} from "taskday";
 
-defineProps({
+const props = defineProps({
   project: {
     tyoe: Object,
     required: true,
   },
 });
+
+const { form, store } = useCardForm();
+
+function submit() {
+  store(props.project);
+}
 </script>
