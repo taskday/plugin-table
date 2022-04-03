@@ -24,6 +24,7 @@ const _hoisted_5 = ["onSubmit"];
 const _hoisted_6 = { class: "px-2 py-2" };
 const _hoisted_7 = /* @__PURE__ */ _createElementVNode("span", null, null, -1);
 const _hoisted_8 = { class: "px-2 py-2" };
+const _hoisted_9 = { class: "flex justify-end items-center space-x-2 w-full" };
 const VFormInput = window["Components"].VFormInput;
 const VFieldWrapper = window["Components"].VFieldWrapper;
 const VCard = window["Components"].VCard;
@@ -80,17 +81,15 @@ const _sfc_main = /* @__PURE__ */ _defineComponent({
                         _hoisted_7
                       ]),
                       _createElementVNode("td", _hoisted_8, [
-                        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.project.fields, (field) => {
-                          return _openBlock(), _createElementBlock("div", {
-                            class: "flex justify-end items-center space-x-2 w-full",
-                            key: field.id
-                          }, [
-                            _createVNode(_unref(VFieldWrapper), {
+                        _createElementVNode("div", _hoisted_9, [
+                          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.project.fields, (field) => {
+                            return _openBlock(), _createBlock(_unref(VFieldWrapper), {
+                              key: field.id,
                               card,
                               field
-                            }, null, 8, ["card", "field"])
-                          ]);
-                        }), 128))
+                            }, null, 8, ["card", "field"]);
+                          }), 128))
+                        ])
                       ])
                     ]);
                   }), 128))
@@ -107,6 +106,8 @@ const _sfc_main = /* @__PURE__ */ _defineComponent({
 });
 document.addEventListener("taskday:init", () => {
   Taskday.register("table", {
-    views: [{ id: "performing-table", name: "Table", component: _sfc_main }]
+    views: [
+      { id: "performing-table", name: "Table", component: _sfc_main }
+    ]
   });
 });

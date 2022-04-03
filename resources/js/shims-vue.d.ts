@@ -4,7 +4,6 @@ declare module "*.vue" {
   export default component;
 }
 
-
 declare module "taskday" {
   import { defineComponent } from "vue";
   const component: ReturnType<typeof defineComponent>;
