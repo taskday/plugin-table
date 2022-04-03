@@ -25,12 +25,13 @@
               <span></span>
             </td>
             <td class="px-2 py-2">
-              <div
-                class="flex justify-end items-center space-x-2 w-full"
-                v-for="field in project.fields"
-                :key="field.id"
-              >
-                <VFieldWrapper :card="card" :field="field"></VFieldWrapper>
+              <div class="flex justify-end items-center space-x-2 w-full">
+                <VFieldWrapper
+                  v-for="field in project.fields"
+                  :key="field.id"
+                  :card="card"
+                  :field="field"
+                ></VFieldWrapper>
               </div>
             </td>
           </tr>
