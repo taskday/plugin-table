@@ -15,14 +15,4 @@ class TablePlugin extends Plugin
     {
         return new TableAssetBundle;
     }
-
-    public function fields(): array
-    {
-        return [];
-    }
-
-    public function widgets(): array
-    {
-        return [];
-    }
 }

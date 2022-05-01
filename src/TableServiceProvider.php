@@ -15,16 +15,5 @@ class TableServiceProvider extends ServiceProvider
     {
         // Register plugin
         Taskday::register(new TablePlugin, 'table');
-
-        // Registering extra web routes
-        Route::middleware('web')->group(__DIR__ . '/../routes/web.php');
-    }
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
-        //
     }
 }
