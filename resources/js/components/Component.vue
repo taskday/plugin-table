@@ -6,8 +6,19 @@
           <thead>
             <tr>
               <th class="px-2 py-1 text-left">Title</th>
-              <th class="px-2 py-1 text-left" v-for="field in project.fields">
-                {{ field.title }}
+              <th class="px-2 py-1 text-left" v-for="field in project.fields" @click="sortBy(field)">
+                <div class="flex items-center cursor-pointer">
+                  <span>{{ field.title }}</span>
+                  <svg v-if="isCurrent(field) && !isDesc(field)" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                  </svg>
+                  <svg v-else-if="isCurrent(field) && isDesc(field)" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                  </svg>
+                  <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                  </svg>
+                </div>
               </th>
             </tr>
           </thead>
@@ -76,6 +87,7 @@ import {
   VCard,
   VContainer,
   useCardForm,
+  useSorter,
 } from "taskday";
 
 const props = defineProps({
@@ -86,6 +98,7 @@ const props = defineProps({
 });
 
 const { form, store } = useCardForm();
+const { sortBy, isDesc, isCurrent } = useSorter();
 
 function submit() {
   store(props.project);
