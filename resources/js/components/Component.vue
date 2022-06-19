@@ -1,9 +1,9 @@
 <template>
-  <div class="hidden md:block w-full">
+  <div class="hidden md:block w-full px-6">
     <VCard style="padding: 0">
       <table class="w-full">
         <thead>
-          <tr class="border-t">
+          <tr class="">
             <th class="px-4 py-2 text-left">Title</th>
             <th class="px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-800 border-l" v-for="field in project.fields" @click="sortBy(field)">
               <div class="flex items-center justify-between cursor-pointer">
@@ -59,12 +59,12 @@
             </td>
           </tr>
           <tr class="border-t border-b">
-            <td class="py-2" colspan="99">
+            <td class="" colspan="99">
               <form @submit.prevent="submit">
                 <VFormInput
                   placeholder="Create a card..."
                   v-model="form.title"
-                  class="w-full border-none focus:ring-0 shadow-none border-b" 
+                  class="w-full border-none focus:ring-0 shadow-none" 
                 ></VFormInput>
               </form>
             </td>
@@ -73,12 +73,11 @@
       </table>
     </VCard>
   </div>
-  <div class="flex flex-col gap-2 md:hidden">
+  <div class="flex flex-col gap-4 md:hidden px-6">
     <form @submit.prevent="submit">
       <VFormInput
         placeholder="Create a card..."
         v-model="form.title"
-        class="w-full border-none focus:ring-0 shadow-none border-b" 
       ></VFormInput>
     </form>
     <VCard v-for="card in project.cards">
@@ -107,7 +106,6 @@ import {
   VFormInput,
   VFieldWrapper,
   VCard,
-  VContainer,
   useCardForm,
   useSorter,
   VDropdown,

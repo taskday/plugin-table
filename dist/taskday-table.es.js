@@ -28,9 +28,9 @@ const _withCtx = window["Vue"].withCtx;
 const _createVNode = window["Vue"].createVNode;
 const _createBlock = window["Vue"].createBlock;
 const _withModifiers = window["Vue"].withModifiers;
-const _hoisted_1 = { class: "hidden md:block w-full" };
+const _hoisted_1 = { class: "hidden md:block w-full px-6" };
 const _hoisted_2 = { class: "w-full" };
-const _hoisted_3 = { class: "border-t" };
+const _hoisted_3 = { class: "" };
 const _hoisted_4 = /* @__PURE__ */ _createElementVNode("th", { class: "px-4 py-2 text-left" }, "Title", -1);
 const _hoisted_5 = ["onClick"];
 const _hoisted_6 = { class: "flex items-center justify-between cursor-pointer" };
@@ -108,11 +108,11 @@ const _hoisted_22 = /* @__PURE__ */ _createElementVNode("svg", {
 const _hoisted_23 = /* @__PURE__ */ _createElementVNode("p", null, "Delete", -1);
 const _hoisted_24 = { class: "border-t border-b" };
 const _hoisted_25 = {
-  class: "py-2",
+  class: "",
   colspan: "99"
 };
 const _hoisted_26 = ["onSubmit"];
-const _hoisted_27 = { class: "flex flex-col gap-2 md:hidden" };
+const _hoisted_27 = { class: "flex flex-col gap-4 md:hidden px-6" };
 const _hoisted_28 = ["onSubmit"];
 const _hoisted_29 = { class: "flex items-center gap-3 mt-2" };
 const VFormInput = window["Components"].VFormInput;
@@ -235,7 +235,7 @@ const _sfc_main = /* @__PURE__ */ _defineComponent({
                           placeholder: "Create a card...",
                           modelValue: _unref(form).title,
                           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _unref(form).title = $event),
-                          class: "w-full border-none focus:ring-0 shadow-none border-b"
+                          class: "w-full border-none focus:ring-0 shadow-none"
                         }, null, 8, ["modelValue"])
                       ], 40, _hoisted_26)
                     ])
@@ -253,8 +253,7 @@ const _sfc_main = /* @__PURE__ */ _defineComponent({
             _createVNode(_unref(VFormInput), {
               placeholder: "Create a card...",
               modelValue: _unref(form).title,
-              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => _unref(form).title = $event),
-              class: "w-full border-none focus:ring-0 shadow-none border-b"
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => _unref(form).title = $event)
             }, null, 8, ["modelValue"])
           ], 40, _hoisted_28),
           (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(__props.project.cards, (card) => {
