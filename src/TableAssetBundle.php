@@ -6,14 +6,14 @@ use Taskday\Bundles\AssetBundle;
 
 class TableAssetBundle extends AssetBundle
 {
-    function scripts(): array
+    public function scripts(): array
     {
         return [
-            __DIR__ . '/../dist/taskday-table.es.js'
+            __DIR__ . '/../dist/taskday-table.esm.js'
         ];
     }
 
-    function styles(): array
+    public function styles(): array
     {
         return [
 
